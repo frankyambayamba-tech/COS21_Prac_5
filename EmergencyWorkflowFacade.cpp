@@ -1,4 +1,8 @@
 #include "EmergencyWorkflowFacade.h"
+#include "IncidentCoordinator.h"
+#include "CampusAccess.h"
+#include "AlertService.h"
+#include "AuditLogger.h"
 
 EmergencyWorkflowFacade::EmergencyWorkflowFacade(IncidentCoordinator* coord,
                                                  CampusAccess* access,
@@ -16,7 +20,7 @@ void EmergencyWorkflowFacade::handleMajorIncident(const std::string& incidentId,
     logger->logIncident(incidentId);
 
     //2. Change status to dispatched and dispatch the teams
-    coordinator->updateStatus(incidentId, "Dispatched";
+    coordinator->updateStatus(incidentId, "Dispatched");
     coordinator->dispatchSecurity(areaId);
     coordinator->dispatchMedical(areaId);
 
