@@ -12,7 +12,7 @@ class CampusArea {
 
         virtual ~CampusArea (); //virtual destructor
 
-        virtual void lockDown () = 0;  //lock down an area (leaf/composite)
+        virtual void lockDown() = 0;  //lock down an area (leaf/composite)
 
         virtual void unlock () = 0;    //unlock an area (leaf/composite)
 

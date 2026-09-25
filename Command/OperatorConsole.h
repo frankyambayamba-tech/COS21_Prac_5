@@ -22,7 +22,7 @@ public:
 bool submit(Command* command);
 
 //Function 3:
-bool cancelList();
+bool cancelLast();
 
 //Function 4:
 void printHistory() const;

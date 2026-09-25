@@ -19,7 +19,7 @@ public:
 MedicalTeam();
 
 //Function 2:
-bool respond(CampusArea* location);
+void onDispatch(CampusArea* location);
 
 
 };

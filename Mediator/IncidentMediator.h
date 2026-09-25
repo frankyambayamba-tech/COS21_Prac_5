@@ -10,17 +10,17 @@
 
 using namespace std;
 
-enum class IncidentEvent{
+// enum class IncidentEvent{
 
-AreaSecured,
+// AreaSecured,
 
-UnitDispatched,
+// UnitDispatched,
 
-AlertIssued,
+// AlertIssued,
 
-ActionCancelled
+// ActionCancelled
 
-};
+// };
 
 class IncidentMediator{
 

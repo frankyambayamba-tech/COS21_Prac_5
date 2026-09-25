@@ -15,12 +15,16 @@ class SecureAreaCommand : public Command{
 
 private:
 
+FacilitiesTeam* facilities;
+
 CampusArea* area;
+
+bool wasAlreadyLocked;
 
 public:
 
 //Function 1:
-SecureAreaCommand(CampusArea* area);
+SecureAreaCommand(CampusArea* area, FacilitiesTeam* f);
 
 //Function 2:
 bool execute();

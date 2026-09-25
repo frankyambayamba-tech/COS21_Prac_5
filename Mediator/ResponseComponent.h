@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "IncidentMediator.h"
+#include "../Composite/CampusArea.h"
 
 
 using namespace std;
@@ -24,7 +25,7 @@ public:
 
 //Function 0:
 ResponseComponent();
-ResponseComponent(IncidentMediator* mediator, bool available);
+ResponseComponent(IncidentMediator* mediator);
 
 //Function 1:
 void setMediator(IncidentMediator* mediator);
@@ -37,6 +38,10 @@ void setAvailability(bool available);
 
 //Funtion 4:
 virtual ~ResponseComponent();
+
+virtual void onDispatch(CampusArea* location) {
+        std::cout << "Team dispatched to " << location->name() << std::endl;
+    }
 
 };
 

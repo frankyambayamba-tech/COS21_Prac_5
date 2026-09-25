@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "ResponseComponent.h"
+#include "../Composite/CampusArea.h"
 
 
 using namespace std;
@@ -13,18 +14,20 @@ using namespace std;
 class FacilitiesTeam : public ResponseComponent{
 
 private:
-bool areaSecured;
+CampusArea* securedArea;
 
 public:
 
 //Function 1:
-FacilitiesTeam(bool areaSecured);
+FacilitiesTeam();
 
 //Function 2:
 bool secureArea(CampusArea* area);
 
 //Function 3:
 bool isAreaSecured() const;
+
+bool releaseArea();
 
 };
 

@@ -6,6 +6,10 @@
 #include <iostream>
 #include <vector>
 #include "IncidentMediator.h"
+#include "SecurityTeam.h"
+#include "MedicalTeam.h"
+#include "FacilitiesTeam.h"
+
 
 
 using namespace std;
@@ -25,10 +29,10 @@ void notify(ResponseComponent* colleague);
 void registerComponent(ResponseComponent* component);
 
 //Function 3:
-bool handleDispatch(ResponseComponent* team, string location);
+bool handleDispatch(ResponseComponent* team, CampusArea* location);
 
 //Function 4:
-bool handleAlert(string& message);
+bool handleAlert(const string& message);
 
 };
 
