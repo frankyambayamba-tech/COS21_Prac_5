@@ -3,7 +3,7 @@
 //Function 1:
 FacilitiesTeam::FacilitiesTeam(){
 
-    securedArea = false;
+    securedArea = nullptr;
 
 
 }

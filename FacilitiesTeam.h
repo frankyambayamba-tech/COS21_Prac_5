@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "ResponseComponent.h"
-#include "../Composite/CampusArea.h"
+#include "CampusArea.h"
 
 
 using namespace std;

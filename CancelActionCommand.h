@@ -1,8 +1,8 @@
-#ifndef ISSUEALERTCOMMAND_H
-#define ISSUEALERTCOMMAND_H
+#ifndef CANCELACTIONCOMMAND_H
+#define CANCELACTIONCOMMAND_H
 
 #include "Command.h"
-#include "../Mediator/IncidentCoordinator.h"
+#include "IncidentCoordinator.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -10,18 +10,16 @@
 
 using namespace std;
 
-class IssueAlertCommand : public Command{
+class CancelActionCommand : public Command{
 
 private:
 
-IncidentCoordinator* IC;
-
-string message;
+Command* previousCommand;
 
 public:
 
 //Function 1:
-IssueAlertCommand(IncidentCoordinator* IC, string& message);
+CancelActionCommand(Command* previousCommand);
 
 //Function 2:
 bool execute();
@@ -36,8 +34,7 @@ bool canExecute() const;
 string getDescription() const;
 
 //Function 6:
-virtual ~IssueAlertCommand();
-
+virtual ~CancelActionCommand();
 
 };
 

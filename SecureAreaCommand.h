@@ -2,8 +2,8 @@
 #define SECUREAREACOMMAND_H
 
 #include "Command.h"
-#include "../Mediator/IncidentCoordinator.h"
-#include "../Composite/CampusArea.h"
+#include "IncidentCoordinator.h"
+#include "CampusArea.h"
 #include <string>
 #include <iostream>
 #include <vector>

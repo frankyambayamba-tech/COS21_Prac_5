@@ -1,16 +1,17 @@
-#ifndef CAMPUS_ACCESS_H
-#define CAMPUS_ACCESS_H
+#ifndef CAMPUSACCESS_H
+#define CAMPUSACCESS_H
 
-#include <string>
+class CampusAccess {
 
-class CampusAccess{
     public:
-        virtual ~CampusAccess() = default;
 
-        virtual void lockArea(const std::string& zone) = 0;
-        virtual void unlockArea(const std::string zone) =0;
-        virtual void restrictArea(const std::string& zone) = 0;
+        virtual ~CampusAccess() {}          //Virtual Destructor 
 
+        virtual bool lockArea(int id) = 0;    //lock area with the id
+
+        virtual bool unlockArea(int id) = 0;  //unlock area with the id
+
+        virtual bool restrictArea(int id, int level) = 0; //apply restriction level to the area
+   
 };
-
 #endif

@@ -2,8 +2,8 @@
 #define DISPATCHUNITCOMMAND_H
 
 #include "Command.h"
-#include "../Mediator/IncidentCoordinator.h"
-#include "../Mediator/ResponseComponent.h"
+#include "IncidentCoordinator.h"
+#include "ResponseComponent.h"
 #include <string>
 #include <iostream>
 #include <vector>

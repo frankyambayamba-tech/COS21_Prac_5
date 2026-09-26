@@ -1,18 +1,39 @@
-#ifndef INCIDENT_COORDINATOR_H
-#define INCIDENT_COORDINATOR_H
+#ifndef INCIDENTCOORDINATOR_H
+#define INCIDENTCOORDINATOR_H
+
 
 #include <string>
+#include <iostream>
+#include <vector>
+#include "IncidentMediator.h"
+#include "SecurityTeam.h"
+#include "MedicalTeam.h"
+#include "FacilitiesTeam.h"
 
-// Concrete Mediator (will inherit from an IncidentMediator interface later)
-class IncidentCoordinator {
+
+
+using namespace std;
+
+class IncidentCoordinator : public IncidentMediator{
+
+private:
+
+vector<ResponseComponent*> responseList;
+
 public:
-    virtual ~IncidentCoordinator() = default;
 
-    virtual void updateStatus(const std::string& incidentId, const std::string& status);
-    virtual void dispatchSecurity(const std::string& areaId);
-    virtual void dispatchMedical(const std::string& areaId);
-    
-    // Additional mediator coordination methods will go here
+//Function 1:
+void notify(ResponseComponent* colleague);
+
+//Function 2:
+void registerComponent(ResponseComponent* component);
+
+//Function 3:
+bool handleDispatch(ResponseComponent* team, CampusArea* location);
+
+//Function 4:
+bool handleAlert(const string& message);
+
 };
 
-#endif // INCIDENT_COORDINATOR_H
+#endif

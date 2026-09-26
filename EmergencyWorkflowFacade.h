@@ -3,10 +3,13 @@
 
 #include <string>
 
-class IncidentCoordinator;
-class CampusAccess;
-class AlertService;
-class AuditLogger;
+#include "IncidentCoordinator.h"
+#include "CampusAccess.h"
+#include "AlertService.h"
+#include "AuditLogger.h"
+#include "Incident.h"
+#include "CampusArea.h"
+#include "ResponseComponent.h"
 
 class EmergencyWorkflowFacade {
     private:
@@ -14,15 +17,17 @@ class EmergencyWorkflowFacade {
         CampusAccess* accessController;
         AlertService* alertService;
         AuditLogger* logger;
+        ResponseComponent* securityTeam;
+        ResponseComponent* medicalTeam;
     
     public:
         //constructor for the system dependencies
         EmergencyWorkflowFacade(IncidentCoordinator* coord, CampusAccess* access,
-                                AlertService* alert, AuditLogger* log);
+                                AlertService* alert, AuditLogger* log, ResponseComponent* secTeam, ResponseComponent* medTeam);
         
         virtual ~EmergencyWorkflowFacade();
 
-        void handleMajorIncident(const std::string& incidentId, const std::string& areaId);
+        void handleMajorIncident(Incident* incident, CampusArea* area);
 };
 
 #endif

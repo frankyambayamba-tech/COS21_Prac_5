@@ -7,26 +7,28 @@
 EmergencyWorkflowFacade::EmergencyWorkflowFacade(IncidentCoordinator* coord,
                                                  CampusAccess* access,
                                                  AlertService* alert,
-                                                 AuditLogger* log)
+                                                 AuditLogger* log, ResponseComponent* secTeam, ResponseComponent* medTeam)
     : coordinator(coord), accessController(access), alertService(alert), logger(log){}
 
 EmergencyWorkflowFacade::~EmergencyWorkflowFacade(){
     // The client (ScenarioRunner or main) will manage the memory so facade does not delete objects
 }
 
-void EmergencyWorkflowFacade::handleMajorIncident(const std::string& incidentId, const std::string& areaId){
+void EmergencyWorkflowFacade::handleMajorIncident(Incident* incident, CampusArea* area){
     // The facade does the subsystem calls in a sequence
     // 1. Log the incident
-    logger->logIncident(incidentId);
+    logger->logIncident(incident->getId());
 
     //2. Change status to dispatched and dispatch the teams
-    coordinator->updateStatus(incidentId, "Dispatched");
-    coordinator->dispatchSecurity(areaId);
-    coordinator->dispatchMedical(areaId);
+    incident->setStatus("Dispatched");
 
-    //3. Restrict access annd lock down the area
-    accessController->lockArea(areaId);
+    //3. Dispatch using mediator
+    coordinator->handleDispatch(securityTeam, area);
+    coordinator->handleDispatch(medicalTeam, area);
 
-    //4. Broadcast the emergency alert
-    alertService->broadcastAlert("Emergency in " + areaId);
+    // 4. Lock down the area
+    area-> lockDown();
+
+    //5. Broadcast the emergency alert
+    alertService->broadcastAlert("Emergency in " + area->name());
 }
