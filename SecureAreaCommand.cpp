@@ -1,7 +1,7 @@
 #include "SecureAreaCommand.h"
 
 //Function 1:
-SecureAreaCommand::SecureAreaCommand(CampusArea* area, FacilitiesTeam* f) : area(area), wasAlreadyLocked(false), facilities(f){
+SecureAreaCommand::SecureAreaCommand(CampusArea* area, FacilitiesTeam* f) : facilities(f), area(area), wasAlreadyLocked(false){
 
 
 }
@@ -30,11 +30,15 @@ bool SecureAreaCommand::execute(){
 bool SecureAreaCommand::undo(){
 
 if(!facilities || wasAlreadyLocked){
+    if(facilities){
+        return facilities->releaseArea();
+    }
 
-    return facilities->releaseArea();
+    return false;
 }
 
-return area->unlock();
+area->unlock();
+return true;
 
 }
 

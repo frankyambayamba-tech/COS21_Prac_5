@@ -5,8 +5,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "ResponseComponent.h"
 
+
+class ResponseComponent;
 
 using namespace std;
 

@@ -70,19 +70,22 @@ int main() {
 
     std::cout << "\n=== Running Manual Operator Commands ===" << std::endl;
     // Demonstrating the command pattern working alongside the rest of the system
-    std::string loc = "LectureHall-B";
-    Command* dispatchCmd = new DispatchUnitCommand(coordinator, medical, loc);
+    Command* dispatchCmd = new DispatchUnitCommand(coordinator, medical, hallB);
     Command* secureCmd = new SecureAreaCommand(hallB, facilities);
     
-    console->submit(dispatchCmd);
-    console->submit(secureCmd);
+
+    if (!console->submit(dispatchCmd)) {
+        delete dispatchCmd;
+    }
+    
+    if (!console->submit(secureCmd)) {
+        delete secureCmd;
+    }
 
     std::cout << "\n=== System Cleanup ===" << std::endl;
     // Clean up pointers (Ownership handled in main)
     delete facade;
     delete console;
-    delete dispatchCmd;
-    delete secureCmd;
     delete facilities;
     delete medical;
     delete security;

@@ -5,8 +5,10 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "IncidentMediator.h"
+
 #include "CampusArea.h"
+
+class IncidentMediator;
 
 
 using namespace std;

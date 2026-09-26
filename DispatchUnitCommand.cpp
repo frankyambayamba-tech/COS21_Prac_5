@@ -2,7 +2,7 @@
 
 
 //Function 1:
-DispatchUnitCommand::DispatchUnitCommand(IncidentCoordinator* c, ResponseComponent* t, string& l)
+DispatchUnitCommand::DispatchUnitCommand(IncidentCoordinator* c, ResponseComponent* t, CampusArea* l)
 : IC(c), team(t), location(l)
 {}
 

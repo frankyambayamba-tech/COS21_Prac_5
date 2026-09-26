@@ -1,14 +1,10 @@
 #include "ResponseComponent.h"
+#include "IncidentMediator.h"
 
 //Function 0:
-ResponseComponent::ResponseComponent(IncidentMediator* mediator){
-
-this->mediator = mediator;
-
-available = false;
+ResponseComponent::ResponseComponent() : mediator(nullptr), available(true) {
 
 }
-
 //Function 1:
 void ResponseComponent::setMediator(IncidentMediator* mediator){
 

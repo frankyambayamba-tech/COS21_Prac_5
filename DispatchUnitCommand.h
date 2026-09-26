@@ -19,13 +19,13 @@ IncidentCoordinator* IC;
 
 ResponseComponent* team;
 
-string location;
+CampusArea* location;
 
 
 public:
 
 //Function 1:
-DispatchUnitCommand(IncidentCoordinator* IC, ResponseComponent* team, string& location);
+DispatchUnitCommand(IncidentCoordinator* IC, ResponseComponent* team, CampusArea* location);
 
 //Function 2:
 bool execute();

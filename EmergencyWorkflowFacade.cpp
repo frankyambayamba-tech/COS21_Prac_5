@@ -8,7 +8,7 @@ EmergencyWorkflowFacade::EmergencyWorkflowFacade(IncidentCoordinator* coord,
                                                  CampusAccess* access,
                                                  AlertService* alert,
                                                  AuditLogger* log, ResponseComponent* secTeam, ResponseComponent* medTeam)
-    : coordinator(coord), accessController(access), alertService(alert), logger(log){}
+    : coordinator(coord), accessController(access), alertService(alert), logger(log), securityTeam(secTeam), medicalTeam(medTeam){}
 
 EmergencyWorkflowFacade::~EmergencyWorkflowFacade(){
     // The client (ScenarioRunner or main) will manage the memory so facade does not delete objects
